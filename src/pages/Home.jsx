@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 
 import React, { useState, useEffect } from "react";
 import styles from "./Home.module.css";
@@ -11,8 +11,9 @@ const Home = () => {
   const cargarPeliculas = async (pagina) => {
     try {
       const respuesta = await fetch(
-        `https://api.themoviedb.org/3/movie/popular?api_key=192e0b9821564f26f52949758ea3c473&language=es-MX&page=${pagina}`
+        `https://api.themoviedb.org/3/movie/popular?api_key=a14c80ae068cf2ee2e614b27391deec2&language=es-MX&page=${pagina}`
       );
+    //   https://api.themoviedb.org/3/movie/550?api_key=a14c80ae068cf2ee2e614b27391deec2
 
       console.log(respuesta);
 
@@ -86,7 +87,7 @@ const Home = () => {
       </div>
 
       <div className={styles.container}>
-        <h2>Películas populares</h2>
+        {/* <h2>Películas populares</h2> */}
         <div className={styles.row}>
           {peliculas.map((pelicula) => (
             <div
@@ -110,6 +111,11 @@ const Home = () => {
             <button className={styles.closeButton} onClick={handlePeliculaDeseleccionada}>
               X
             </button>
+            <div className={styles.botones}>
+                <Link to="/Peliculas">
+                    <button>Ver Más</button>
+                </Link>
+            </div>
             <img
               className={styles.poster}
               src={`https://image.tmdb.org/t/p/w500/${peliculaSeleccionada.poster_path}`}
@@ -117,23 +123,28 @@ const Home = () => {
             />
             <h3>{peliculaSeleccionada.title}</h3>
             {/* <p>{peliculaSeleccionada.overview}</p> */}
-            <h3>Idioma</h3>
+            <h4>Idioma</h4>
             <p>{peliculaSeleccionada.original_language}</p>
-            <h3>Género</h3>
+            <h4>Género</h4>
             <ul>
               {peliculaSeleccionada.genres.map((genero) => (
                 <li key={genero.id}>{genero.name}</li>
               ))}
             </ul>
           </div>
-        </div>
-        )}
+        </div>)}
 
         <div className={styles.paginacion}>
           <button onClick={handleAnterior}>Anterior</button>
           <button onClick={handleSiguiente}>Siguiente</button>
         </div>
+        {/* <div className={styles.botones}>
+        <Link to="/Peliculas">
+            <button>Ir a Película</button>
+        </Link>
+     </div> */}
       </div>
+      
     </div>
   );
 };

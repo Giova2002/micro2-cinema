@@ -9,7 +9,7 @@ const Proximamente = () => {
   const cargarPeliculas = async (pagina) => {
     try {
       const respuesta = await fetch(
-        `https://api.themoviedb.org/3/movie/upcoming?api_key=192e0b9821564f26f52949758ea3c473&language=es-MX&page=${pagina}`
+        `https://api.themoviedb.org/3/movie/upcoming?api_key=a14c80ae068cf2ee2e614b27391deec2&language=es-MX&page=${pagina}`
       );
 
       console.log(respuesta);

@@ -133,7 +133,7 @@
   text-align: center;
   height: 50px;
   width: 200px;
-  background: #241744;
+  background: #0D1B2A;
   color: #fff;
   border-radius: 100px;
   font-family: 'Montserrat', sans-serif;
@@ -183,6 +183,15 @@
   align-items: center;
 }
 
+/* .modalContent {
+  max-width: 600px;
+  max-height: 800px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+} */
 .modalContent {
   max-width: 600px;
   max-height: 800px;
@@ -191,18 +200,37 @@
   border-radius: 5px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.modalContent img {
+/* .modalContent img {
   padding-left: 30%;
   width: 40%;
   height: auto;
   margin-bottom: 20px;
+} */
+.modalContent img {
+  margin: 0 auto;
+  width: 40%;
+  height: auto;
+  margin-bottom: 0px;
 }
 
 .modalContent h3 {
+  font-size: 2rem;
+  margin-bottom: 10px;;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.modalContent h4 {
   font-size: 1.5rem;
-  margin-bottom: 10px;
+  margin-bottom: 0;
+  padding-top: 0;
+  margin-top: 0;
+  color: #415A77;
 }
 
 .modalContent p {
@@ -235,6 +263,57 @@
   justify-content: center;
   align-items: center;
 }
+
+/* .botones {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+} */
+
+.modalContent ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10%;
+}
+
+.botones {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  margin-top: 10px;
+  text-align: center
+}
+
+.botones button {
+  background-color: #0D1B2A;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.modalContent p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  margin-bottom: 5px;
+  margin-top: 0;
+}
+
+
+.botones button:hover {
+  background-color: #415A77;
+}
+
+
 /* 
 .modalContent {
   width: 80%;
