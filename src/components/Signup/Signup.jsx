@@ -4,11 +4,28 @@ import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { InputControl } from "../InputControl/InputControl";
+import { signInWithPopup } from "firebase/auth";
+import { googleProvider } from "../../firebase";
 export function Signup() {
   const navigate = useNavigate();
   const [values, setvalues] = useState({ name: "", email: "", pass: "" });
   const [errorMsg, setErrorMsg] = useState([]);
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
+  
+  
+  
+  
+const signinWithGoogle = async () =>{
+    try{
+        const result = await signInWithPopup(auth, googleProvider);
+        console.log(result);
+    }catch (error){
+        console.error(error);
+    }
+ };
+
+
+
 
   const registro = () => {
     if (!values.name || !values.email || !values.pass) {
@@ -31,6 +48,7 @@ export function Signup() {
         setErrorMsg(err.message);
       });
   };
+  
 
   return (
     <div className={styles.container}>
@@ -62,6 +80,7 @@ export function Signup() {
           <button onClick={registro} disabled={submitButtonDisabled}>
             Guardar
           </button>
+          <button onClick={signinWithGoogle}>Registrate con google</button>
           <p>
             Si ya tienes una cuenta inicia sesión
             <span>
