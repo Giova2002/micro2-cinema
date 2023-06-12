@@ -177,6 +177,12 @@
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import styles from "./Home.module.css";
+import img1 from "../foto/img1.jpg";
+import img2 from "../foto/img2.jpg";
+import img3 from "../foto/img3.jpg";
+import img4 from "../foto/img4.jpg";
+import img5 from "../foto/img5.jpg";
+import img6 from "../foto/img6.jpg";
 
 
 const Home = () => {
@@ -287,12 +293,12 @@ const Home = () => {
    <div>
      <div className="hero">
        <div className="carrusel">
-         <img src="foto/img1.jpg" alt="Imagen 1" />
-         <img src="foto/img2.jpg" alt="Imagen 2" />
-         <img src="foto/img3.jpg" alt="Imagen 3" />
-         <img src="foto/img4.jpg" alt="Imagen 4" />
-         <img src="foto/img5.jpg" alt="Imagen 5" />
-         <img src="foto/img6.jpg" alt="Imagen 6" />
+         <img src={img1} alt="Imagen 1" />
+         <img src={img2} alt="Imagen 2" />
+         <img src={img3} alt="Imagen 3" />
+         <img src={img4} alt="Imagen 4" />
+         <img src={img5} alt="Imagen 5" />
+         <img src={img6} alt="Imagen 6" />
        </div>
     </div>
      <div className={styles.contenedor}>

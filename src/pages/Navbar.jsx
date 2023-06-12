@@ -1,6 +1,8 @@
 
 import { Link, useLocation } from 'react-router-dom';
 import React, { useState } from 'react';
+import foto4 from "../foto/foto4.png";
+
 // import {UserAuth} from '../context/AuthContext'
 
 export default function Navbar() {
@@ -43,7 +45,7 @@ export default function Navbar() {
   return (
     <header>
       <div className="logo">
-        <img src="/foto/foto4.png" alt="FILMET logo" />
+        <img src={foto4} alt="FILMET logo" />
         <h1>FILMET</h1>
       </div>
       <nav>

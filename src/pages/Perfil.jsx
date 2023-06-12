@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../firebase';
 import styles from "./Perfil.module.css";
+import foto6 from "../foto/foto6.png";
 
 const Perfil = () => {
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ const Perfil = () => {
       <div className={styles.perfilInfo}>
         {usuario ? (
         <>
-            <img src="/foto/foto6.png" alt="Logo de usuario" />
+            <img src={foto6} alt="Logo de usuario" />
             {/* <h2>Bienvenido - {usuario.displayName || usuario.email}</h2> */}
             <h2>Correo: {usuario.email}</h2>
         </>

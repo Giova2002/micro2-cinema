@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import React from 'react'
+import foto4 from "../foto/foto4.png";
 
 export default  function Footer() { 
     return ( 
@@ -9,7 +10,7 @@ export default  function Footer() {
                 <figure>
                     <h1 className='tittle'>FILMET</h1>
                     <a href="#">
-                        <img src="foto/foto4.png" alt="logo" />
+                        <img src={foto4} alt="logo" />
                     </a>
                 </figure>
             </div>
