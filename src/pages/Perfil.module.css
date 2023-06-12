@@ -1,0 +1,65 @@
+.perfilContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  .perfilHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  
+  .perfilHeader h1 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .perfilInfo {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .perfilInfo h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .salirButton {
+    background-color: #0077b6;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 2rem;
+  }
+  
+  .salirButton:hover {
+    background-color: #023e8a;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .perfilInfo {
+      max-width: 90%;
+    }
+    
+    .salirButton {
+      font-size: 1.2rem;
+      padding: 0.8rem 2rem;
+    }
+  }

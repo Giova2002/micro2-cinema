@@ -4,7 +4,7 @@ import { InputControl} from "./InputControl/InputControl";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { useState } from "react";
+import { useState , useEffect } from "react";
 
 export function Login() {
   const navigate = useNavigate();
@@ -28,6 +28,27 @@ export function Login() {
         setErrorMsg(err.message);
       });
   };
+  useEffect(() => {
+    const guardarPerfil = async (user) => {
+      try {
+        const userProfile = {
+          displayName: values.name, // Puedes guardar el nombre que ingresó el usuario durante el registro
+          // Puedes agregar más campos para guardar en el perfil del usuario según tus necesidades
+        };
+        await updateProfile(user, userProfile);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        navigate("/");
+        guardarPerfil(user); // Llamada a la función para guardar el perfil del usuario
+      }
+    });
+    return unsubscribe;
+  }, [navigate, values.name]);
   return (
     <div className={styles.container}>
       <div className={styles.innerBox}>
