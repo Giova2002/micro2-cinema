@@ -1,5 +1,5 @@
 import styles from "./Signup.module.css";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
@@ -10,23 +10,18 @@ export function Signup() {
   const navigate = useNavigate();
   const [values, setvalues] = useState({ name: "", email: "", pass: "" });
   const [errorMsg, setErrorMsg] = useState([]);
-  const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
-  
-  
-  
-  
-const signinWithGoogle = async () =>{
-    try{
-        const result = await signInWithPopup(auth, googleProvider);
-        console.log(result);
-    }catch (error){
-        console.error(error);
-    }
- };
-
-
-
-
+  const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false); 
+const signinWithGoogle= async () =>{
+ try{
+     const result = await signInWithPopup(auth, googleProvider);
+     console.log(result);
+ }catch (error){
+     console.error(error);
+ }
+};
+const WithGoogle = async()=>{
+  await signinWithGoogle();
+}
   const registro = () => {
     if (!values.name || !values.email || !values.pass) {
       setErrorMsg("Llene todos los campos");
@@ -48,7 +43,27 @@ const signinWithGoogle = async () =>{
         setErrorMsg(err.message);
       });
   };
-  
+  useEffect(() => {
+    const guardarPerfil = async (user) => {
+      try {
+        const userProfile = {
+          displayName: values.name, // Puedes guardar el nombre que ingresó el usuario durante el registro
+          // Puedes agregar más campos para guardar en el perfil del usuario según tus necesidades
+        };
+        await updateProfile(user, userProfile);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        navigate("/");
+        guardarPerfil(user); // Llamada a la función para guardar el perfil del usuario
+      }
+    });
+    return unsubscribe;
+  }, [navigate, values.name]);
 
   return (
     <div className={styles.container}>
@@ -80,7 +95,7 @@ const signinWithGoogle = async () =>{
           <button onClick={registro} disabled={submitButtonDisabled}>
             Guardar
           </button>
-          <button onClick={signinWithGoogle}>Registrate con google</button>
+          <button onClick={WithGoogle}>Registrate con google</button>
           <p>
             Si ya tienes una cuenta inicia sesión
             <span>
@@ -92,3 +107,4 @@ const signinWithGoogle = async () =>{
     </div>
   );
 }
+
