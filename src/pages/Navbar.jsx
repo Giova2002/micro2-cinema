@@ -207,10 +207,10 @@ export default function Navbar() {
         <Link to="/Signup">Sign Up</Link>
         <Link to="/Perfil">Perfil</Link>
         <Link to="/Busca"></Link>
-        <form onSubmit={buscarPeliculas}>
+        {/* <form onSubmit={buscarPeliculas}>
           <input type="text" placeholder="Buscar" value={busqueda} onChange={(e) => setBusqueda(e.target.value)} />
           <button type="submit"><i className="fas fa-search"></i></button>
-        </form>
+        </form> */}
         <div className="menu">
           {location.pathname !== '/' && (
             <React.Fragment>
@@ -227,7 +227,7 @@ export default function Navbar() {
           )}
         </div>
       </nav>
-      {resultados.length > 0 && (
+      {/* {resultados.length > 0 && (
         <div className="resultados">
           <h2>Resultados de la búsqueda:</h2>
           <ul>
@@ -244,7 +244,7 @@ export default function Navbar() {
             ))}
           </ul>
         </div>
-      )}
+      )} */}
     </header>
   );
 }

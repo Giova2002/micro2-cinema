@@ -38,15 +38,16 @@ const Perfil = () => {
       </div>
       <div className={styles.perfilInfo}>
         {usuario ? (
-          <>
-            <h2>Bienvenido - {usuario.displayName || usuario.email}</h2>
+        <>
+            <img src="/foto/foto6.png" alt="Logo de usuario" />
+            {/* <h2>Bienvenido - {usuario.displayName || usuario.email}</h2> */}
             <h2>Correo: {usuario.email}</h2>
-          </>
+        </>
         ) : (
-          <h2>Inicie sesión</h2>
+        <h2>Inicie sesión</h2>
         )}
         <button onClick={salir} className={styles.salirButton}>Salir</button>
-      </div>
+        </div>
     </div>
   );
 };

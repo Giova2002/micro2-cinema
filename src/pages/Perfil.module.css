@@ -9,12 +9,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    /* width: 100%; */
     margin-bottom: 2rem;
   }
   
   .perfilHeader h1 {
-    font-size: 2rem;
+    font-size: 4rem;
     font-weight: bold;
   }
   
@@ -34,10 +34,16 @@
     margin-bottom: 1rem;
     font-size: 1.5rem;
     font-weight: bold;
+    padding-left: 0%;
+  }
+  .perfilInfo img {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
   }
   
   .salirButton {
-    background-color: #0077b6;
+    background-color: #0D1B2A;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -50,7 +56,7 @@
   }
   
   .salirButton:hover {
-    background-color: #023e8a;
+    background-color: #d87a0e;
   }
   
   @media screen and (max-width: 600px) {
