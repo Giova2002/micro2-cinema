@@ -56,7 +56,8 @@ function App() {
       <Route path='/Peliculas' element={<Peliculas/>}/>
       <Route path='/Perfil' element={<Perfil/>}/>
       <Route path='/Proximamente' element={<Proximamente/>}/>
-      <Route path='/Busca' element={<Busca/>}/>
+      {/* <Route path='/Busca' element={<Busca/>}/> */}
+      <Route path='/pelicula/:id' element={<Busca/>}/>
       {/* <Route path="/Busca" component={Busca} /> */}
 
     </Routes>
