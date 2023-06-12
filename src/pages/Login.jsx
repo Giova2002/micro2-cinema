@@ -5,6 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState , useEffect } from "react";
+import { googleProvider } from "../firebase";
+import { signInWithPopup } from "firebase/auth";
 
 export function Login() {
   const navigate = useNavigate();
@@ -28,6 +30,14 @@ export function Login() {
         setErrorMsg(err.message);
       });
   };
+  const signinWithGoogle = async () =>{
+    try{
+        const result = await signInWithPopup(auth, googleProvider);
+        console.log(result);
+    }catch (error){
+        console.error(error);
+    }
+ };
   useEffect(() => {
     const guardarPerfil = async (user) => {
       try {
@@ -71,6 +81,7 @@ export function Login() {
         <div className={styles.footer}>
           <b className={styles.error}>{errorMsg}</b>
           <button onClick={Iniciar} disabled={submitButtonDisabled}>Iniciar</button>
+          <button onClick={signinWithGoogle}>Iniciar sesion con google</button>
           <p>
             Crear cuenta
             <span>

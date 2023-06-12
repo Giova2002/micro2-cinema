@@ -36,16 +36,29 @@ const Busca = () => {
     return <div>Cargando...</div>;
   }
 
+
   return (
     <div className={styles.container}>
-      <h2>{pelicula.title}</h2>
-      <img
+        {/* <h2 className={styles.title}>{pelicula.title}</h2> */}
+        <img
         src={`https://image.tmdb.org/t/p/w500/${pelicula.poster_path}`}
         alt={pelicula.title}
         className={styles.poster}
-      />
-      <p>{pelicula.overview}</p>
-    </div>
+        />
+        <h2 className={styles.title}>{pelicula.title}</h2>
+        <p>{pelicula.overview}</p>
+        <p>Idioma Original: {pelicula.original_language}</p>
+        <p>Fecha Estreno: {pelicula.release_date}</p>
+        <p>Popularidad: {pelicula.popularity}</p>
+        <p>Rating: {pelicula.vote_average}</p>
+        <p>Géneros:</p>
+        <ul>
+        {pelicula.genres.map((genero) => (
+            <li key={genero.id}>{genero.name}</li>
+        ))}
+        </ul>
+        
+  </div>
   );
 };
 
