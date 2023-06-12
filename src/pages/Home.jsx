@@ -263,7 +263,7 @@ const Home = () => {
  const buscarPeliculas = async () => {
    try {
      const respuesta = await fetch(
-       `https://api.themoviedb.org/3/search/now_playing?api_key=a14c80ae068cf2ee2e614b27391deec2&language=es-MX&query=${busqueda}&page=1&include_adult=false`
+       `https://api.themoviedb.org/3/search/movie?api_key=a14c80ae068cf2ee2e614b27391deec2&language=es-MX&query=${busqueda}&page=1&include_adult=false`
      );
 
 
