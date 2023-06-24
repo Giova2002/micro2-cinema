@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./Busca.module.css";
 import { db } from "../firebase";
+import { collection, addDoc } from "firebase/firestore";
 
 const Busca = () => {
   const { id } = useParams(); // Obtener el ID de la película de la URL
@@ -46,6 +47,24 @@ const Busca = () => {
 
   const handleModalClose = () => {
     setShowModal(false);
+    agregar();
+    const agregar = async ()=>{
+      const reserva = {
+        "nombre": nombre,
+        "apellido": apellido,
+        "correo": correo,
+        "fecha": fecha,
+        "personas": personas
+      };
+      try{
+      const docRef = await addDoc(collection(db, "reservar"),reserva );
+      console.log("Document written with ID: ", docRef.id);
+    }catch(e){
+      console.error(e);
+    }
+    }
+
+
   };
 
   const handleNombreChange = (event) => {
@@ -121,27 +140,54 @@ const Busca = () => {
     alert("Reserva realizada con éxito");
     setShowModal(false);
 
-    const reserva = {
-        nombre,
-        apellido,
-        cedula,
-        correo,
-        boletos,
-        asientos,
-        pelicula: pelicula.title,
-        fecha: new Date(),
-      };
-    
+//    const reserva = {
+//        nombre,
+//        apellido,
+//        cedula,
+//        correo,
+//        boletos,
+//        asientos,
+//        pelicula: pelicula.title,
+//        fecha: new Date(),
+//      };
+//      db.collection("reservar").add({
+//        nombre: nombre,
+//        apellido: apellido,
+//        correo: correo,
+//        fecha: fecha,
+//        personas: personas
+//      })
+//      .then((docRef) => {
+//        console.log("Documento agregado con ID: ", docRef.id);
+//      })
+//      .catch((error) => {
+//        console.error("Error al agregar documento: ", error);
+//      });
+        const agregar = async ()=>{
+          const reserva = {
+            "nombre": nombre,
+            "apellido": apellido,
+            "correo": correo,
+            "fecha": fecha,
+            "personas": personas
+          };
+          try{
+          const docRef = await addDoc(collection(db, "reservar"),reserva );
+          console.log("Document written with ID: ", docRef.id);
+        }catch(e){
+          console.error(e);
+        }
+        }
       // Guardar la reserva en Firestore
-      try {
-        const respuesta = db.collection("reservar").add(reserva);
-        console.log("Reserva guardada con ID:", respuesta.id);
-        alert("Reserva realizada con éxito");
-        setShowModal(false);
-      } catch (error) {
-        console.log("Error al guardar reserva:", error);
-        alert("Hubo un error al realizar la reserva, por favor inténtalo de nuevo más tarde");
-      }
+//      try {
+//        const respuesta = db.collection("reservar").add(reserva);
+//        console.log("Reserva guardada con ID:", respuesta.id);
+//        alert("Reserva realizada con éxito");
+//        setShowModal(false);
+//      } catch (error) {
+//        console.log("Error al guardar reserva:", error);
+//        alert("Hubo un error al realizar la reserva, por favor inténtalo de nuevo más tarde");
+//      }
   };
 
   if (!pelicula) {

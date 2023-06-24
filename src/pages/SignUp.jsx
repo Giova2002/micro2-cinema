@@ -8,9 +8,6 @@ import { InputControl } from "./InputControl/InputControl";
 import { googleProvider } from "../firebase";
 import { signInWithPopup } from "firebase/auth";
 
-
-
-
 export function Signup() {
     const navigate = useNavigate();
     const [values, setvalues] = useState({ name: "", email: "", pass: "" });
@@ -109,9 +106,5 @@ export function Signup() {
       </div>
     );
   }
-
-
-
-
 export default Signup;
 

@@ -77,6 +77,9 @@ export function Login() {
           }
           placeholder="Ingrese su contraseña"
         />
+        <div>
+        <button onClick={signinWithGoogle}>Iniciar sesion con google</button>
+        </div>
 
         <div className={styles.footer}>
           <b className={styles.error}>{errorMsg}</b>
